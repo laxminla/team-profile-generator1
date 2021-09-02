@@ -6,7 +6,7 @@ const Intern = require('./lib/Intern');
 const inquirer = require('inquirer');
 const path = require('path');
 const fs = require('fs')
-
+const generatePage = require('./lib/htmlRenderer');
 
 const employees = [];
 let answer;
@@ -110,13 +110,24 @@ function getEmployeeType() {
                     break
 
                 default:
-                // user quit
+                    // user quit
+                    if (!employees) {
+                        employees = [];
+                    }
+                    const pageContent = generatePage(employees);
+                    fs.writeFile('./dist/index.html', pageContent, err => {
+                        if (err) throw err;
+                        console.log('Team Profile is complete! Check out the index.html in dist folder!');
+                    });
+
             }
 
 
         })
 
 }
+
+
 
 
 
@@ -165,6 +176,7 @@ function getInternInfo() {
 //     getEmployeeType()
 // };
 getEmployeeType()
+
 
 
 // TODO: generate HTML output
