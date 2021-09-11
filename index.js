@@ -106,8 +106,8 @@ function getEmployeeType() {
                     employees = [];
                 }
                 const pageContent = generatePage(employees);
-                fs.writeFile("./dist/index.html", pageContent, (err) => {
-                    if (err) throw err;
+                fs.writeFile("./dist/index.html", pageContent, (error) => {
+                    if (error) throw error;
                     console.log(
                         "Team Profile is complete! Check out the index.html in dist folder!"
                     );
