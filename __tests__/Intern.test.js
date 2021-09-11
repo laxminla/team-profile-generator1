@@ -1,4 +1,4 @@
-const intern = require('./Intern')
+const intern = require('./lib/Intern')
 const intern = newIntern('Maya', '10', 'maya@gmail.com', 'Oxford' );
 
 test('test if we can get the constructor value for the intern object', () => {

@@ -1,5 +1,5 @@
-const manager = require('./Manager')
-const manager = newManager('Maya', '10', 'maya@gmail.com', '1A' );
+const manager = require('./lib/Manager')
+const manager = newManager('Maya', '10', 'maya@gmail.com', '1A' )
 
 test('test if we can get the constructor value for the manager object', () => {
 expect(manager.name).toBe('Maya');
