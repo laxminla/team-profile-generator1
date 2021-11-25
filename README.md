@@ -33,6 +33,7 @@ Run npm test to run jest for tests on constructors.
 
 ## Git/Links
 https://github.com/laxminla/team-profile-generator1.git
+https://watch.screencastify.com/v/hU8IYi9f2TGb7Y3tFTJx
 
 
 
