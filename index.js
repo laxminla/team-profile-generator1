@@ -6,6 +6,8 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+const OUTPUT_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(OUTPUT_DIR, "team.html");
 const generatePage = require("./lib/htmlRenderer");
 
 let employees = [];
@@ -20,6 +22,11 @@ const engineerQuestion = [
         type: "input",
         name: "id",
         message: "What is the engineer's ID number?",
+    },
+    {
+        type: "input",
+        name: "email",
+        message: "What is the engineer's email address?",
     },
     {
         type: "input",
@@ -40,7 +47,11 @@ const InternQuestion = [
         name: "id",
         message: "What is the intern's ID number?",
     },
-
+    {
+        type: "input",
+        name: "email",
+        message: "What is the intern's email address?",
+    },
     {
         type: "input",
         name: "school",
@@ -54,13 +65,16 @@ const managerQuestions = [
         name: "name",
         message: "What is the manager's name?",
     },
-
     {
         type: "input",
         name: "id",
         message: "What is the manager's ID number?",
     },
-
+    {
+        type: "input",
+        name: "email",
+        message: "What is the manager's email address?",
+    },
     {
         type: "input",
         name: "officeNumber",
@@ -107,7 +121,7 @@ function getEmployeeType() {
                 }
                 const pageContent = generatePage(employees);
                 fs.writeFile("./dist/index.html", pageContent, (error) => {
-                    if (error) console.log (error);
+                    if (error) console.log(error);
                     console.log(
                         "Team Profile is complete! Check out the index.html in dist folder!"
                     );
@@ -160,17 +174,32 @@ function getInternInfo() {
     });
 }
 
-// while(answer !=='Quit'){
-//     getEmployeeType()
-// };
 getEmployeeType();
+// TODO: generate HTML output
+if (!fs.existsSync(OUTPUT_DIR)) {
+    fs.mkdirSync(OUTPUT_DIR)
+}
+
+function generateTeam() {
+    fs.writeFileSync(outputPath, htmlRenderer(teamMembers), "utf-8");
+};
+
+
+
+
+
 
 // TODO: generate HTML output
 // if (!fs.existsSync(OUTPUT_DIR)) {
 //     fs.mkdirSync(OUTPUT_DIR)
 // }
 // fs.writeFileSync(outputPath, htmlRenderer(teamMembers), "utf-8");
-
+// function writeToFile(filename, data) {
+//     fs. writeFile(filename, data, (err) => {
+//         if(err)throw err;
+//         console.log('file saved')
+//     });
+// };
 
 
 

@@ -1,0 +1,46 @@
+header {
+    color: white;
+    background-color: #f56dea;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    font-size: 2em;
+
+}
+
+main {
+display: flex;
+flex-wrap: wrap;
+margin: 5px;
+padding: 15px;
+background-color: white;
+}
+.row {
+  padding: 5px; 
+  margin: 30px;
+  background-color: #f56dea;
+}
+.card-title {
+   color: white;
+   display: flex;
+   justify-content: center;
+   font-size: 1.5em;
+   font-weight: bold;
+   background-color: rgb(69, 187, 241); 
+}
+p {
+    color: white;
+    font-size: 1em;
+    font-style: italic;
+    background-color:rgb(121, 193, 241) ;
+}
+.card-action {
+    color: black;
+}
+ul {
+  white-space: nowrap; 
+  overflow: visible; 
+}
+
+
